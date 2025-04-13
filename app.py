@@ -146,4 +146,4 @@ else:
 
 # Footer
 st.divider()
-st.caption("Indonesian Law RAG | Powered by Gemini API")
+st.caption("Asisten AI Hukum Indonesia | By: Psatir-420 (Gungde)")
