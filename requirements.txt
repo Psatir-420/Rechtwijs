@@ -9,7 +9,7 @@ protobuf>=3.20.0
 tqdm>=4.62.0
 
 # Use a specific version of FAISS with pre-built wheels
-faiss-cpu==1.7.2
+faiss-cpu==1.7.4
 
 # Additional libraries that might be needed
 python-dateutil>=2.8.0
