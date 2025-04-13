@@ -2,8 +2,8 @@ import os
 import json
 import logging
 import numpy as np
-import faiss
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 # Configure logging
 logging.basicConfig(
@@ -15,7 +15,7 @@ logger = logging.getLogger("VectorStore")
 
 class VectorStore:
     def __init__(self, data_dir="processed_data"):
-        """Initialize the vector store.
+        """Initialize the vector store using sklearn instead of FAISS.
         
         Args:
             data_dir (str): Directory containing processed PDF data
@@ -28,10 +28,9 @@ class VectorStore:
             max_features=5000,
             token_pattern=r'\b\w+\b'  # Only consider words as tokens
         )
-        self.index = None
+        self.vectors = None
         self.chunk_texts = []
         self.chunk_metadata = []
-        self.dimension = 5000  # Same as max_features in TfidfVectorizer
         
         logger.info(f"Initialized vector store with data directory: {data_dir}")
     
@@ -65,7 +64,7 @@ class VectorStore:
             logger.error(f"Error loading documents: {str(e)}")
     
     def _prepare_vectors(self):
-        """Prepare vectors for similarity search using FAISS."""
+        """Prepare vectors for similarity search using sklearn."""
         # Reset
         self.chunk_texts = []
         self.chunk_metadata = []
@@ -90,25 +89,14 @@ class VectorStore:
         # Vectorize chunks
         try:
             # Create and fit the TF-IDF vectorizer
-            sparse_vectors = self.vectorizer.fit_transform(self.chunk_texts)
-            
-            # Convert sparse vectors to dense for FAISS
-            dense_vectors = sparse_vectors.toarray().astype('float32')
-            
-            # Create FAISS index - using L2 distance
-            self.dimension = dense_vectors.shape[1]
-            self.index = faiss.IndexFlatL2(self.dimension)
-            
-            # Add vectors to the index
-            self.index.add(dense_vectors)
-            
-            logger.info(f"Vectorized {len(self.chunk_texts)} chunks and built FAISS index")
+            self.vectors = self.vectorizer.fit_transform(self.chunk_texts)
+            logger.info(f"Vectorized {len(self.chunk_texts)} chunks")
         except Exception as e:
-            logger.error(f"Error building FAISS index: {str(e)}")
-            self.index = None
+            logger.error(f"Error vectorizing text: {str(e)}")
+            self.vectors = None
     
     def similarity_search(self, query, top_k=5):
-        """Perform a similarity search using FAISS.
+        """Perform a similarity search using cosine similarity.
         
         Args:
             query (str): Query text
@@ -117,30 +105,25 @@ class VectorStore:
         Returns:
             list: List of most similar chunks with their metadata
         """
-        if self.index is None or not self.chunk_texts:
+        if self.vectors is None or not self.chunk_texts:
             logger.warning("No vectors available for search")
             return []
         
         try:
             # Vectorize the query
             query_vec = self.vectorizer.transform([query])
-            query_dense = query_vec.toarray().astype('float32')
             
-            # Perform search
-            distances, indices = self.index.search(query_dense, min(top_k, len(self.chunk_texts)))
+            # Calculate cosine similarity
+            similarities = cosine_similarity(query_vec, self.vectors)[0]
+            
+            # Get indices of top k most similar documents
+            top_indices = similarities.argsort()[-top_k:][::-1]
             
             # Return results
             results = []
-            for i, idx in enumerate(indices[0]):
-                if idx < 0 or idx >= len(self.chunk_metadata):
-                    continue  # Skip invalid indices
-                
-                # Lower distance is better in L2 space, so convert to similarity score
-                # by using a simple inverse (1/1+distance)
-                similarity = 1.0 / (1.0 + distances[0][i])
-                
+            for idx in top_indices:
                 results.append({
-                    "score": float(similarity),
+                    "score": float(similarities[idx]),
                     "source": self.chunk_metadata[idx]["source"],
                     "metadata": self.chunk_metadata[idx]["metadata"],
                     "text": self.chunk_metadata[idx]["text"]
