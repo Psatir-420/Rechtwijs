@@ -76,10 +76,10 @@ with st.sidebar:
     st.markdown("### About")
     st.markdown("""
     Program ini hanyalah asisten semata, gunakan secukupnya dan dengan bertanggung jawab. Semua jawaban AI didasarkan pada data yang digunakan untuk melatih. Punya literatur hukum atau peraturan yang ingin anda tambahkan ? Chat langsung Gungde/ kirim PDF ke Grup Tuweb    
-    - Enter your Pass key to use the service
-    - Load the law data from the data directory
-    - Ask questions related to Indonesian law
-    - Get accurate answers with source citations
+- Masukkan kunci akses Anda untuk menggunakan layanan ini
+- Muat data hukum dari direktori data
+- Ajukan pertanyaan terkait hukum Indonesia
+- Dapatkan jawaban akurat dengan sumber kutipan
     """)
 
 # Main content - RAG Query Interface
