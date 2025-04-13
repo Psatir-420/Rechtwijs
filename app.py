@@ -7,7 +7,7 @@ import google.generativeai as genai
 
 # Setup page config
 st.set_page_config(
-    page_title="Indonesian Law RAG Assistant",
+    page_title="Rechtwijs AI",
     page_icon="⚖️",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -22,8 +22,8 @@ if 'rag_engine' not in st.session_state:
     st.session_state.rag_engine = None
 
 # Title and description
-st.title("🇮🇩 Indonesian Law RAG Assistant")
-st.markdown("A retrieval-augmented generation (RAG) system based on Indonesian Law")
+st.title("🇮🇩 Asisten AI berbahasa indonesia")
+st.markdown("AI dengan basis data peraturan dan literatur berbahasa indonesia, By: Psatir-420(Gungde)")
 
 # Sidebar for settings and actions
 with st.sidebar:
@@ -31,10 +31,10 @@ with st.sidebar:
     
     # API Key input
     api_key = st.text_input(
-        "Gemini API Key", 
+        "Pass Key", 
         value=st.session_state.gemini_api_key,
         type="password",
-        help="Enter your Gemini API key from https://aistudio.google.com/"
+        help="not a member of tuweb ? Get your own pass key from https://aistudio.google.com/"
     )
     
     if api_key != st.session_state.gemini_api_key:
@@ -75,22 +75,21 @@ with st.sidebar:
     st.divider()
     st.markdown("### About")
     st.markdown("""
-    This application uses Retrieval-Augmented Generation (RAG) to answer questions about Indonesian law.
-    
-    - Enter your Gemini API key to use the service
+    Program ini hanyalah asisten semata, gunakan secukupnya dan dengan bertanggung jawab. Semua jawaban AI didasarkan pada data yang digunakan untuk melatih. Punya literatur hukum atau peraturan yang ingin anda tambahkan ? Chat langsung Gungde/ kirim PDF ke Grup Tuweb    
+    - Enter your Pass key to use the service
     - Load the law data from the data directory
     - Ask questions related to Indonesian law
     - Get accurate answers with source citations
     """)
 
 # Main content - RAG Query Interface
-st.header("Indonesian Law Query")
+st.header("Hallo, Selamat Belajar")
 
 # Check if we have required components
 if not st.session_state.vector_store or len(st.session_state.vector_store.documents) == 0:
-    st.warning("Please load law data first by clicking the 'Load Data' button in the sidebar.")
+    st.warning("Masukkan kunci terlebih dahulu lalu load data untuk menggunakan AI")
 elif not st.session_state.gemini_api_key:
-    st.error("Please enter your Gemini API key in the sidebar to use the RAG system.")
+    st.error("Masukkan kunci terlebih dahulu lalu load data untuk menggunakan AI")
 elif not st.session_state.rag_engine:
     # Try to initialize RAG engine if vector store and API key are available
     try:
@@ -110,16 +109,16 @@ else:
     
     col1, col2 = st.columns([1, 3])
     with col1:
-        num_results = st.number_input("Number of documents to retrieve", 
+        num_results = st.number_input("Mau pakai berapa sumber ? Maximum 10 sumber sob(semakin banyak semakin lambat)", 
                                     min_value=1, 
                                     max_value=10, 
                                     value=3)
     with col2:
-        show_sources = st.checkbox("Show source documents", value=True)
+        show_sources = st.checkbox("dokumen sumber", value=True)
     
-    if st.button("Generate Answer"):
+    if st.button("Buat Jawaban"):
         if query:
-            with st.spinner("Generating response..."):
+            with st.spinner("Lagi Mikir........):
                 # Get response from RAG engine
                 response = st.session_state.rag_engine.generate_response(
                     query, 
