@@ -49,7 +49,7 @@ with st.sidebar:
         with st.spinner("Loading law data..."):
             try:
                 # Initialize vector store
-                data_dir = "data"
+                data_dir = "processed_data"
                 st.session_state.vector_store = VectorStore(data_dir)
                 st.session_state.vector_store.load_documents()
                 
