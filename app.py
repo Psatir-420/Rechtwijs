@@ -42,11 +42,11 @@ with st.sidebar:
         
         # Reset RAG engine if API key changes
         st.session_state.rag_engine = None
-        st.success("API key updated!")
+        st.success("Password berhasil di submit")
     
     # Load data button
     if st.button("Load Data"):
-        with st.spinner("Loading law data..."):
+        with st.spinner("Menunggu koneksi database"):
             try:
                 # Initialize vector store
                 data_dir = "processed_data"
@@ -118,7 +118,7 @@ else:
     
     if st.button("Buat Jawaban"):
         if query:
-            with st.spinner("Lagi Mikir........):
+            with st.spinner("Lagi Mikir........"):
                 # Get response from RAG engine
                 response = st.session_state.rag_engine.generate_response(
                     query, 
