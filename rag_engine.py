@@ -99,7 +99,7 @@ class RAGEngine:
         
         return context
     
-def _create_prompt(self, query, context):
+    def _create_prompt(self, query, context):
     """Membuat prompt untuk model Gemini dalam Bahasa Indonesia.
 
     Args:
@@ -115,9 +115,9 @@ def _create_prompt(self, query, context):
 
 Silakan jawab pertanyaan di bawah ini berdasarkan informasi yang terdapat dalam dokumen di atas. Anda boleh menyusun ulang kalimat dengan bahasa Anda sendiri selama maknanya tetap sesuai dengan dokumen. Jangan menambahkan informasi dari luar dokumen. Jika dokumen tidak memuat informasi yang cukup, sampaikan bahwa jawabannya tidak tersedia.
 
-Pertanyaan: {query}
+Question: {query}
 
-Jawaban:"""
+Answer:"""
     
     return prompt
 
