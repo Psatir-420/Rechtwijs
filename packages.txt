@@ -1,0 +1,8 @@
+build-essential
+cmake
+swig
+python3-dev
+wget
+libopenblas-dev
+libatlas-base-dev
+
