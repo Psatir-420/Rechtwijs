@@ -99,27 +99,28 @@ class RAGEngine:
         
         return context
     
-    def _create_prompt(self, query, context):
-        """Create a prompt for the Gemini model.
-        
-        Args:
-            query (str): User query
-            context (str): Retrieved context
-            
-        Returns:
-            str: Complete prompt
-        """
-        prompt = f"""You are a legal assistant specializing in Indonesian laws. You need to provide accurate information based on the given documents.
+def _create_prompt(self, query, context):
+    """Membuat prompt untuk model Gemini dalam Bahasa Indonesia.
+
+    Args:
+        query (str): Pertanyaan pengguna
+        context (str): Konteks hasil pencarian dokumen
+
+    Returns:
+        str: Prompt lengkap dalam Bahasa Indonesia
+    """
+    prompt = f"""Anda adalah asisten hukum yang ahli dalam hukum Indonesia. Berdasarkan dokumen-dokumen berikut, berikan jawaban yang relevan, jelas, dan mudah dipahami.
 
 {context}
 
-Please answer the following question based ONLY on the information provided in the documents above. If the documents don't contain enough information to answer the question, say so - DO NOT make up information.
+Silakan jawab pertanyaan di bawah ini berdasarkan informasi yang terdapat dalam dokumen di atas. Anda boleh menyusun ulang kalimat dengan bahasa Anda sendiri selama maknanya tetap sesuai dengan dokumen. Jangan menambahkan informasi dari luar dokumen. Jika dokumen tidak memuat informasi yang cukup, sampaikan bahwa jawabannya tidak tersedia.
 
-Question: {query}
+Pertanyaan: {query}
 
-Answer:"""
-        
-        return prompt
+Jawaban:"""
+    
+    return prompt
+
     
     def _generate_with_gemini(self, prompt):
         """Generate a response using the Gemini API.
