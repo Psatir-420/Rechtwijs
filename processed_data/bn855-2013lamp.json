@@ -1,0 +1,17 @@
+{
+  "source": "downloaded_pdfs/bn855-2013lamp.pdf",
+  "processed_date": "2025-04-24T13:42:20.580721",
+  "document_info": {
+    "title": "BN 855-2013.doc"
+  },
+  "total_pages": 3,
+  "chunks": [
+    {
+      "text": "2013, No.855 9 LAMPIRAN PERATURAN MENTERI PERHUBUNGAN REPUBLIK INDONESIA NOMOR : PM. 62 TAHUN 2013 TENTANG PEDOMAN PERHITUNGAN BIAYA PENGGUNAAN PRASARANA PERKERETAAPIAN MILIK NEGARA KOMPONEN BIAYA DAN FORMULA PERHITUNGAN BIAYA PENGGUNAAN PRASARANA PERKERETAAPIAN A. PERHITUNGAN BIAYA PENGGUNAAN PRASARANA PERKERETAAPIAN PER DAOP/DIVRE 1. Komponen Biaya Penggunaan Prasarana Perkeretaapian a. Biaya Perawatan Prasarana Perkeretaapian dalam 1 tahun ( ) KM Rp/GT Koridor Panjang Tonnage Passing Divreatau Daopper Perawatan BiayaIM 1i iDaop/Divre − = ×= ∑∑ = =ni i b. Biaya Pengoperasian Prasarana Perkeretaapian dalam 1 tahun ( ) KM Rp/GT Koridor Panjang Tonnage PassingDivre atau Daopper ian Pengoperas BiayaIO 1i iDaop/Divre − = ×= ∑∑ = =ni i c. Biaya Penyusutan Prasarana Perkeretaapian dalam 1 tahun ( ) KM- Rp/GT Koridor Panjang Tonnage PassingDivre/th atau Daopper Penyusutan BiayaID 1i iDaop/Divre = ×= ∑∑ = =ni i 2. Total Biaya Penggunaan Prasarana Perkeretaapian per Daop/Divre (TAC Dasar) dalam 1 tahun ( ) KM- Rp/GT Koridor Panjang Tonnage Passingper tahun Prasarana Penggunaan BiayaTAC 1i iDaop/Divre = ×= ∑∑ = =ni i Atau KM- Rp/GT) ID IO (IM TACDaop/Divre Daop/Divre Daop/Divre Daop/Divre = + + = www.djpp.kemenkumham.go.id 2013, No.855 10 Keterangan: GTKA = Berat Rangkaian KA berdasarkan Stamformasi ditambah Berat Muatan (GT) KMKA = Panjang Lintas pelayanan KA pada masing-masing Daop/Divre (KM) TACDaop/Divre = Biaya Penggunaan Prasarana per GTKM pada masing-masing Daop/Divre (Rp/GT-KM) IM Daop/Divre = Biaya Perawatan Prasarana pada masing-masing Daop/Divre (Rp/GT-KM) IO Daop/Divre = Biaya Pengoperasian Prasarana pada masing- masing Daop/Divre (Rp/GT-KM) ID Daop/Divre = Penyusutan Prasarana pada masing-masing Daop/Divre (Rp/GT-KM) B. PERHITUNGAN BIAYA PENGGUNAAN PRASARANA PERKERETAAPIAN PER KA Faktor Prioritas Penggunaan Prasarana (Fp) ditentukan berdasarkan tingkat prioritas yang meliputi kelas pelayanan dan/atau bobot beban, ditetapkan bernilai 1 (satu) dengan asumsi biaya perawatan yang dikeluarkan saat ini untuk seluruh lintas pelayanan besarannya sama. Rumus: P 1Daop/Divre KA KA KA1K F TAC KM GT TACTAC ii × × × == ∑∑ = == = ni ini iA Total TAC www.djpp.kemenkumham.go.id 2013, No.855 11 Keterangan: TACTotal = Total Biaya Penggunaan Prasarana yang dibebankan terhadap 1 (satu) kali perjalanan KA (Rp) di seluruh Daop/Divre TACKA = Biaya Penggunaan Prasarana yang dibebankan terhadap 1 (satu) kali perjalanan KA (Rp) GTKA = Berat Rangkaian KA berdasarkan Stamformasi ditambah Berat Muatan (GT) KMKA = Panjang Lintasan KA pada masing- masing Daop/Divre (KM) TACDaop/Divre = Biaya Penggunaan Prasarana per GTKM pada masing- masing Daop/Divre (Rp/GT-KM) FP = Faktor Prioritas Penggunaan, yang besarnya adalah 1 (satu) MENTERI PERHUBUNGAN REPUBLIK INDONESIA, E.E. MANGINDAAN www.djpp.kemenkumham.go.id",
+      "metadata": {
+        "page_start": 1,
+        "page_end": 1
+      }
+    }
+  ]
+}
