@@ -1,0 +1,17 @@
+{
+  "source": "downloaded_pdfs/bn380-2011lmp.pdf",
+  "processed_date": "2025-04-24T17:19:42.544826",
+  "document_info": {
+    "title": "bn380-2011lmp.rtf"
+  },
+  "total_pages": 1,
+  "chunks": [
+    {
+      "text": "LAMPIRAN PERATURAN MENTERI PERHUBUNGAN NOMOR : PM 68 TAHUN 2011 TANGGAL : 6 Juli 2011 ---------------------------------------------------------------- TATA CARA PERHITUNGAN RUANG BEBAS TINGGI JEMBATAN RUANG BEBAS TINGGI JEMBATAN Tinggi Jembatan = (HHWL + TM) + {(HHWL+TM)xFk} TM = SM + TK + M HHWL : Air Pasang Paling Tertinggi ( High Highest Water Level ) TM : tinggi maximum kapal (m) SM : freeboard + draft (sarat maksimal) (m) M : tinggi tiang mast (m) TK : tinggi muatan (m) / tinggi crane Fk : faktor keselamatan 10% Ditetapkan di Jakarta pada tanggal 6 Juli 2011 MENTERI PERHUBUNGAN, FREDDY NUMBERI www.djpp.depkumham.go.id",
+      "metadata": {
+        "page_start": 1,
+        "page_end": 1
+      }
+    }
+  ]
+}
